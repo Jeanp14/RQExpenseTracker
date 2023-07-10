@@ -13,7 +13,7 @@ const AllExpenses = () => {
 
     useEffect(() => {
         axios.get(
-            'https://expensetracker-2c96f-default-rtdb.firebaseio.com/expenses.json?auth=' + token
+            'https://expensetrackerrq-default-rtdb.firebaseio.com/expenses.json?auth=' + token
         ).then((response) => {
             console.log('Log from AllExpenses.tsx: '+ response.data);
             setFetchedExpenses(response.data);

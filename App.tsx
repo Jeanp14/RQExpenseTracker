@@ -15,6 +15,9 @@ import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignUpScreen';
 import AuthContextProvider, { AuthContext } from './store/auth-context';
 import { useContext } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -142,10 +145,12 @@ const Navigation = () => {
 export default function App() {
   return (
     <>
+    <QueryClientProvider client={queryClient}>
       <StatusBar style="light" />
       <AuthContextProvider>
         <Navigation/>
       </AuthContextProvider>
+      </QueryClientProvider>
     </> 
   );
 }

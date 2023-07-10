@@ -12,30 +12,6 @@ type ExpenseDataProps = {
         description: 'A pair of shoes',
         amount: 59.99,
         date: new Date('2022-12-19')
-    },
-    {
-        id: 'e2',
-        description: 'A t-shirt',
-        amount: 19.29,
-        date: new Date('2023-01-17')
-    },
-    {
-        id: 'e3',
-        description: 'Some bananas',
-        amount: 4.49,
-        date: new Date('2023-05-03')
-    },
-    {
-        id: 'e4',
-        description: 'A book',
-        amount: 13.89,
-        date: new Date('2023-03-15')
-    },
-    {
-        id: 'e5',
-        description: 'A PS5',
-        amount: 499.99,
-        date: new Date('2022-12-21')
     }
 ];  */
 
@@ -53,10 +29,11 @@ const expensesReducer = (state: any, action: any) => {
             //const id = new Date().toString() + Math.random().toString();
             return [action.payload, ...state];
         case 'SET':
-            const inverted = action.payload.reverse();
+            const inverted = action.payload?.reverse();
             return inverted; 
         case 'DELETE':
-            return state.filter((expense: any) => expense.id !== action.payload);
+            const expenses = state as any[];
+            return expenses?.filter((expense: any) => expense.id !== action.payload);
         case 'UPDATE':
             const updatableExpenseIndex = state.findIndex((expense: any) => expense.id === action.payload.id);
             const updatableExpense = state[updatableExpenseIndex];

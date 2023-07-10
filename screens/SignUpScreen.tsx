@@ -19,7 +19,7 @@ const SignupScreen = () => {
     try{
       const {idToken} = await signup({email, password});
       console.log('Token received', idToken);
-      authCtx.authenticate(idToken);
+      authCtx.authenticate(idToken, '');
     }catch(error){
       Alert.alert('Authentication failed!', 'Could not create user. Please check your input or try again later.');
       setIsAuthenticating(false);

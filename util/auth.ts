@@ -1,8 +1,8 @@
 import axios from "axios";
-import { API_KEY } from "../ignore/API";
+import { GOOGLE_API_KEY } from "react-native-dotenv";
 
 const authenticate = async(mode: string, email: string, password: string) => {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:${mode}?key=${API_KEY}`;
+    const url = `https://identitytoolkit.googleapis.com/v1/accounts:${mode}?key=${GOOGLE_API_KEY}`;
     try{const response = await axios.post(
         url, 
         {

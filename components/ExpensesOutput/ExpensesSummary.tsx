@@ -3,7 +3,7 @@ import { GlobalStyles } from '../../constants/styles';
 
 const ExpensesSummary = ({expenses, periodName}: {expenses: any, periodName: string}) => {
 
-    const expensesSum = expenses.reduce((sum: number, expense: any) => {
+    const expensesSum = expenses?.reduce((sum: number, expense: any) => {
         return sum + expense.amount
     }, 0);
 
@@ -11,7 +11,7 @@ const ExpensesSummary = ({expenses, periodName}: {expenses: any, periodName: str
         <View style={styles.container}>
             <Text style={styles.periodStyle}>{periodName}</Text>
             {/* toFixed() sets the number of decimals to the number passed in parameter*/}
-            <Text style={styles.sum}>${expensesSum.toFixed(2)}</Text> 
+            <Text style={styles.sum}>${expensesSum?.toFixed(2)}</Text> 
         </View>
     );
 }
