@@ -15,7 +15,11 @@ const RecentExpenses = () => {
     //use AuthContext to get user localId (uid)
     const {localId} = useContext(AuthContext);
 
+    const expensesCtx = useContext(ExpensesContext);
+
     const {data, error, isFetching} = useGetExpenses({uid: localId, onSuccess: (data) => {console.log(data)}});
+    expensesCtx.setExpenses(data);
+
     /* const errorHandler = () => {
         setError(null);
     }

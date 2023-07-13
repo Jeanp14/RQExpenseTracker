@@ -95,7 +95,7 @@ const ManageExpense = ({route, navigation}: any) => {
             updateItem({id: editedExpenseId, expenseData, UID: localId})
             //console.log('Updating success');
         }else{
-            const id = storeItem({...expenseData, UID: localId});
+            const id = storeItem({expenseData, UID: localId});
             expensesCtx.addExpense({...expenseData, id: id});
             //console.log('Storing success');
         }
@@ -108,7 +108,7 @@ const ManageExpense = ({route, navigation}: any) => {
     }
     const {mutate: updateItem} = useUpdateExpense({queryClient, id: editedExpenseId, uid: localId, onSuccess: onUpdateSuccess});
 
-    const onStoreSuccess = (data: string) => {
+    const onStoreSuccess = (data: any) => {
         //expensesCtx.addExpense({...expenseData, id: data});
         console.log('Storing Success');
     }

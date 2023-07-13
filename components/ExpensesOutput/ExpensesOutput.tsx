@@ -15,24 +15,6 @@ import { GlobalStyles } from '../../constants/styles';
         description: 'A t-shirt',
         amount: 19.29,
         date: new Date('2023-01-17')
-    },
-    {
-        id: 'e3',
-        description: 'Some bananas',
-        amount: 4.49,
-        date: new Date('2023-05-03')
-    },
-    {
-        id: 'e4',
-        description: 'A book',
-        amount: 13.89,
-        date: new Date('2023-03-15')
-    },
-    {
-        id: 'e5',
-        description: 'A PS5',
-        amount: 499.99,
-        date: new Date('2022-12-21')
     }
 ]; */
 

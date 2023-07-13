@@ -39,7 +39,7 @@ export const createUser = (email: string, password: string) => {
 export class AuthInterface{
     private readonly  API_KEY:string='AIzaSyB7orGyRp0tW9CTL0GxJE6P1fo7ktF2okM';
     private readonly  generateUrl=({mode}:{mode:'signInWithPassword'|'signUp'|'lookup'})=>{
-        return `https://identitytoolkit.googleapis.com/v1/accounts:${mode}?key=${this.API_KEY}`
+        return `https://identitytoolkit.googleapis.com/v1/accounts:${mode}?key=${GOOGLE_API_KEY}`
 
     }
     login=async ({email,password}:{email:string,password:string}) =>{
@@ -52,7 +52,7 @@ export class AuthInterface{
                 //ask backend to return token; if token is returned, we know that the login was successful
                 })
             console.log(data);
-            console.log({data});
+            //console.log({data});
             return data;
         }catch(err){
             const error=err as any
